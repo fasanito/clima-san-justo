@@ -1,97 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima San Justo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        #app {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="text"] {
-            width: 70%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #888;
-        }
-    </style>
+    <title>San Justo, Santa Fe</title>
 </head>
 <body>
-    <div id="app">
-        <h1>Clima San Justo</h1>
-        <input type="text" id="cityInput" placeholder="Buscar por ciudad">
-        <button id="searchBtn">Buscar</button>
-        <button id="locationBtn">Ubicación actual</button>
-        <div id="weatherInfo"></div>
-    </div>
-    <footer>
-        hecho con 💖 por @fasanito
-    </footer>
-    <script>
-        const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
-
-        document.getElementById('searchBtn').addEventListener('click', function() {
-            const city = document.getElementById('cityInput').value;
-            getWeatherByCity(city);
-        });
-
-        document.getElementById('locationBtn').addEventListener('click', function() {
-            navigator.geolocation.getCurrentPosition(position => {
-                const { latitude, longitude } = position.coords;
-                getWeatherByLocation(latitude, longitude);
-            });
-        });
-
-        function getWeatherByCity(city) {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
-                .then(response => response.json())
-                .then(data => displayWeather(data));
-        }
-
-        function getWeatherByLocation(lat, lon) {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
-                .then(response => response.json())
-                .then(data => displayWeather(data));
-        }
-
-        function displayWeather(data) {
-            const weatherInfo = document.getElementById('weatherInfo');
-            if (data.cod !== 200) {
-                weatherInfo.innerHTML = `<p>Ciudad no encontrada.</p>`;
-                return;
-            }
-            const { main, weather, name } = data;
-            weatherInfo.innerHTML = `<h2>${name}</h2><p>Temperatura: ${main.temp} °C</p><p>Condición: ${weather[0].description}</p>`;
-        }
-    </script>
+    <h1>Weather in San Justo, Santa Fe</h1>
+    <!-- Further content goes here -->
 </body>
 </html>
